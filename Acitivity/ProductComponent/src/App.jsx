@@ -5,10 +5,10 @@ import ProductTab from './ProductTab';
 function App() {
 
   return (
-    <>
-    <h1>Blockbuster Deals | Shop Now</h1>
+    <div className='container'>
+          <h1>Blockbuster Deals | Shop Now</h1>
       <ProductTab/>
-    </>
+    </div>
   )
 }
 
