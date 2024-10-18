@@ -1,7 +1,7 @@
 import { useState } from "react"
-
+import { v4 as uuidv4 } from 'uuid';
 export default function Todo(){
-    let [arr, setArr] = useState([{task:"sleep",id:}]);
+    let [arr, setArr] = useState([{task:"sleep",id:uuidv4()}]);
     let [newArr, setNewArr] = useState("");
 
      let inputHandle = (event)=>{
@@ -11,7 +11,7 @@ export default function Todo(){
 
      let handleButtonClick = ()=>{
         setArr((currArr)=>{
-            return [...currArr,newArr]
+            return [...currArr,{task:newArr,id:uuidv4()}]
         })
         setNewArr("");
      }
@@ -25,7 +25,7 @@ export default function Todo(){
             <br></br>
             <ul>
                 {arr.map((el)=>{
-                  return  <li>{el}</li>
+                  return  <li key={el.id}>{el.task}</li>
                 })}
             </ul>
         </div>
