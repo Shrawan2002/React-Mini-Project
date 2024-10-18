@@ -15,6 +15,14 @@ export default function Todo(){
         })
         setNewArr("");
      }
+
+      let handleAllUpper = ()=>{
+        setArr((currArr)=>(
+                currArr.map((todos)=>{
+                    return{...todos, task:todos.task.toUpperCase()}
+                })
+        ))
+      }
     return(
         <div>
             <input type="text" onChange={inputHandle} value={newArr} placeholder="enter task" />
@@ -28,6 +36,9 @@ export default function Todo(){
                   return  <li key={el.id}>{el.task}</li>
                 })}
             </ul>
+            <br></br>
+            <br></br>
+            <button onClick={handleAllUpper}> All UpperCase</button>
         </div>
     )
 }
