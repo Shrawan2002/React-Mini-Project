@@ -6,14 +6,21 @@ export default function Todo(){
 
      let inputHandle = (event)=>{
         console.log(event.target.value);
-        // setNewArr()
+        setNewArr(event.target.value);
+     }
+
+     let handleButtonClick = ()=>{
+        setArr((currArr)=>{
+            return [...currArr,newArr]
+        })
+        setNewArr("");
      }
     return(
         <div>
             <input type="text" onChange={inputHandle} value={newArr} placeholder="enter task" />
             <br></br>
             <br></br>
-            <button>Add Task</button>
+            <button onClick={handleButtonClick}>Add Task</button>
             <br></br>
             <br></br>
             <ul>
