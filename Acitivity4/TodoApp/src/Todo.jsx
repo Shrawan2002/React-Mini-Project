@@ -1,7 +1,7 @@
 import { useState } from "react"
 
 export default function Todo(){
-    let [arr, setArr] = useState(["sleep","code"]);
+    let [arr, setArr] = useState([{task:"sleep",id:}]);
     let [newArr, setNewArr] = useState("");
 
      let inputHandle = (event)=>{
