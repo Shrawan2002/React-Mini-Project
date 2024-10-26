@@ -20,6 +20,14 @@ export default function Todo(){
             todo.filter((task)=>task.id !=id)
         ))
     }
+
+    let handleAllUpperCase = ()=>{
+        setTodo((todo)=>(
+            todo.map((todo)=>{
+                return{...todo,task:todo.task.toUpperCase()}
+            })
+        ))
+    }
     return(
         <div>
             <input type="text" placeholder="enter task"  onChange={handleOnchange} value={newTodo} />
@@ -36,6 +44,7 @@ export default function Todo(){
                 ))
                }
             </ul>
+            <button onClick={handleAllUpperCase}>All Todo Upper Case</button>
         </div>
     )
 }
