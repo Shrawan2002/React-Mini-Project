@@ -28,6 +28,20 @@ export default function Todo(){
             })
         ))
     }
+
+    let handleToUpper = (id)=>{
+        setTodo((todo)=>(
+            todo.map((todo)=>{
+                if(todo.id == id){
+                    return{...todo,task:todo.task.toUpperCase()}
+                }else{
+                    return{...todo}
+                }
+            })
+        ))
+    }
+
+    
     return(
         <div>
             <input type="text" placeholder="enter task"  onChange={handleOnchange} value={newTodo} />
@@ -40,6 +54,7 @@ export default function Todo(){
                     <li key={todo.id}>
                         <span>{todo.task}</span>
                         <button onClick={()=>handleDelete(todo.id)}>delete</button>
+                        <button onClick={()=>handleToUpper(todo.id)}>To Upper</button>
                     </li>
                 ))
                }
