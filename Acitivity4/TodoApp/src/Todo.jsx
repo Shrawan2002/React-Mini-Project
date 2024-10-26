@@ -31,7 +31,7 @@ export default function Todo(){
                 todo.map((todo)=>( 
                     <li key={todo.id}>
                         <span>{todo.task}</span>
-                        <button>delete</button>
+                        <button onClick={()=>handleDelete(todo.id)}>delete</button>
                     </li>
                 ))
                }
