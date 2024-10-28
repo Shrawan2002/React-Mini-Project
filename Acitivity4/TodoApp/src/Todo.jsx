@@ -64,11 +64,11 @@ export default function Todo(){
                {
                 todo.map((todo)=>( 
                     <li key={todo.id}>
-                        <span style={{textDecoration : todo.isDone?line-through:null}}>{todo.task}</span>
+                        <span style={{textDecoration : todo.isDone?"line-through":null}}>{todo.task}</span>
                         <button onClick={()=>handleDelete(todo.id)}>delete</button>
                         <button onClick={()=>handleToUpper(todo.id)}>To Upper</button>
                         &nbsp;   &nbsp;   &nbsp;
-                        <button onClick={()=>handleMarks(todo.idh)}>Marks As Done</button>
+                        <button onClick={()=>handleMarks(todo.id)}>Marks As Done</button>
                     </li>
                 ))
                }
