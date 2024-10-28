@@ -1,7 +1,7 @@
 import { useState } from "react"
 import { v4 as uuidv4 } from 'uuid';
 export default function Todo(){
-    let [todo,setTodo] = useState([{task:"hello",id:uuidv4()}]);
+    let [todo,setTodo] = useState([{task:"hello",id:uuidv4() , isDone:false}]);
     let[newTodo,setNewTodo] = useState("");
     let handleOnchange = (event)=>{
         // console.log(event.target.value);
@@ -10,7 +10,7 @@ export default function Todo(){
 
     let handleButton = ()=>{
         setTodo((todo)=>{
-            return[...todo,{task:newTodo,id:uuidv4()}];
+            return[...todo,{task:newTodo,id:uuidv4() , isDone:false}];
         })
         setNewTodo("");
     }
@@ -41,6 +41,16 @@ export default function Todo(){
         ))
     }
 
+    let handleMasks = (id) =>{
+        setTodo((todo)=>(
+            todo.map((task)=>{
+                if(task.id ==id){
+                    return{...task, isDone:true}
+                }
+            })
+        ))
+    }
+
     
     return(
         <div>
@@ -55,6 +65,8 @@ export default function Todo(){
                         <span>{todo.task}</span>
                         <button onClick={()=>handleDelete(todo.id)}>delete</button>
                         <button onClick={()=>handleToUpper(todo.id)}>To Upper</button>
+                        &nbsp;   &nbsp;   &nbsp;
+                        <button>Marks As Done</button>
                     </li>
                 ))
                }
