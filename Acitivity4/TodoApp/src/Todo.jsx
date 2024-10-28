@@ -41,11 +41,13 @@ export default function Todo(){
         ))
     }
 
-    let handleMasks = (id) =>{
+    let handleMarks = (id) =>{
         setTodo((todo)=>(
             todo.map((task)=>{
                 if(task.id ==id){
                     return{...task, isDone:true}
+                }else{
+                    return{...task}
                 }
             })
         ))
@@ -62,11 +64,11 @@ export default function Todo(){
                {
                 todo.map((todo)=>( 
                     <li key={todo.id}>
-                        <span>{todo.task}</span>
+                        <span style={{textDecoration : todo.isDone?line-through:null}}>{todo.task}</span>
                         <button onClick={()=>handleDelete(todo.id)}>delete</button>
                         <button onClick={()=>handleToUpper(todo.id)}>To Upper</button>
                         &nbsp;   &nbsp;   &nbsp;
-                        <button>Marks As Done</button>
+                        <button onClick={()=>handleMarks(todo.idh)}>Marks As Done</button>
                     </li>
                 ))
                }
